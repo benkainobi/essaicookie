@@ -7,7 +7,8 @@
 </head>
 <body>
     <?php
-     if(isset($_POST['nom'])){
+    
+     if(!isset($_COOKIE["Nom"])){
          setcookie("Nom",$_POST['nom'],time()+3600);
          echo 'bonjour '.$_COOKIE["Nom"];
      }
