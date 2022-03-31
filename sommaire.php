@@ -8,11 +8,11 @@
 <body>
     <?php
     
-     if(!isset($_COOKIE["Nom"])){
-         setcookie("Nom",$_POST['nom'],time()+3600);
+     if(isset($_COOKIE["Nom"])){
+         
          echo 'bonjour '.$_COOKIE["Nom"];
      }
-     else{
+     else{setcookie("Nom",$_POST['nom'],time()+3600);
     ?>
     <form method="POST">
         <input type="text" name="nom" id="nom">
