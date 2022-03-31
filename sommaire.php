@@ -8,18 +8,19 @@
 <body>
     <?php
     
-     if(isset($_COOKIE["Nom"])){
-         
-         echo 'bonjour '.$_COOKIE["Nom"];
+     if(!isset($_COOKIE["Nom"])){
+        ?>
+        <form method="POST">
+            <input type="text" name="nom" id="nom">
+            <input type="text" name="couleur" id="couleur">
+            <button type="submit">Enregistrer</button>
+        </form>
+        <?php
+        setcookie("Nom",$_POST['nom'],time()+3600);
+        
      }
-     else{setcookie("Nom",$_POST['nom'],time()+3600);
-    ?>
-    <form method="POST">
-        <input type="text" name="nom" id="nom">
-        <input type="text" name="couleur" id="couleur">
-        <button type="submit">Enregistrer</button>
-    </form>
-    <?php
+     else{
+        echo 'bonjour '.$_COOKIE["Nom"];
     }
     ?>
 </body>
